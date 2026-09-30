@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import { useAuth } from "../../context/AuthContext";
 import { useTranslation } from "react-i18next";
-const API_BASE = import.meta.env?.VITE_API_BASE || "http://localhost:5000";
+const API_BASE = import.meta.env?.VITE_API_BASE || "";
 /* demo session setter - replace in production */
 function setSession(session) {
   try {
