@@ -106,6 +106,7 @@ router.post('/:rideId/location', authenticateJWT, requireDriver, async (req, res
     const ride = await Ride.findById(rideId).populate('route');
     if (!ride) return res.status(404).json({ message: 'Ride not found' });
     if (String(ride.driver) !== req.user.sub) return res.status(403).json({ message: 'Not your ride' });
+    console.log("LOCATION CHECK:", rideId, "STATUS:", ride.status);
     if (!['ongoing','paused'].includes(ride.status)) return res.status(400).json({ message: 'Ride not active' });
 
     const point = {
