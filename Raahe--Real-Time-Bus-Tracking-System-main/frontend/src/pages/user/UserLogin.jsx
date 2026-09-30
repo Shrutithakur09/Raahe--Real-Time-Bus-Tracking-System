@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
 import { useAuth } from "../../context/AuthContext";
 import { useTranslation } from "react-i18next";
-
+const API_BASE = import.meta.env?.VITE_API_BASE || "http://localhost:5000";
 /* demo session setter - replace in production */
 function setSession(session) {
   try {
@@ -78,7 +78,7 @@ export default function UserLoginPage() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/users/send-otp", {
+      const res = await fetch(`${API_BASE}/api/users/send-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ phone: phone.trim(), role: "driver" }),
@@ -162,7 +162,7 @@ export default function UserLoginPage() {
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/users/verify-otp", {
+      const res = await fetch(`${API_BASE}/api/users/verify-otp`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -637,7 +637,7 @@ function RegisterModal({
 
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:5000/api/users/register", {
+      const res = await fetch(`${API_BASE}/api/users/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
