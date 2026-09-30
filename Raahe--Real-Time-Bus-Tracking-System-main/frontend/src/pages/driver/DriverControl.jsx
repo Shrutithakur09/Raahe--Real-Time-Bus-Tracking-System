@@ -463,11 +463,11 @@ export default function DriverControl({ token: propToken, driverId, apiBase = ""
     setIsEnding(false);
     setError("");
     if (!rideId) return;
-    try {
-      await axios.post(`${BASE}/api/driver/${rideId}/end`, {}, authHeader);
-      setStatus("ended");
-      stopGeolocation();
-    } catch (err) {
+   try { 
+  stopGeolocation();
+  await axios.post(`${BASE}/api/driver/${rideId}/end`, {}, authHeader); 
+  setStatus("ended"); 
+}catch (err) {
       console.error(err);
       setError("Failed to end ride");
     }
