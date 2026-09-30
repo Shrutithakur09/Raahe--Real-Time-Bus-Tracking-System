@@ -97,6 +97,7 @@ export default function DriverControl({ token: propToken, driverId, apiBase = ""
   }
 
   function startGeolocation(rid) {
+     if (watchIdRef.current != null) return;
     if (!isDriver) { setError("GPS available for drivers only."); return; }
     setError("");
     if (!("geolocation" in navigator)) {
