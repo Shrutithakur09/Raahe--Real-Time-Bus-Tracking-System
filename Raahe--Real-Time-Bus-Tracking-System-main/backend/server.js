@@ -13,7 +13,7 @@ const app = express();
 
 // --- CORS (allow frontend origin + socket connections) ---
 const FRONTEND_ORIGIN = process.env.FRONTEND_ORIGIN || 'http://localhost:5173';
-
+console.log("FRONTEND_ORIGIN:", FRONTEND_ORIGIN);
 app.use(cors({
   origin: FRONTEND_ORIGIN,
   credentials: true,
