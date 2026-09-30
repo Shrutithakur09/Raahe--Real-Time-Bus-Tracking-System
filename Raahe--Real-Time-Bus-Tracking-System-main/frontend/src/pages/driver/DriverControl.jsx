@@ -584,8 +584,8 @@ export default function DriverControl({ token: propToken, driverId, apiBase = ""
             <button
               className={`flex-1 py-3 rounded-lg text-white font-semibold transition ${status === "ongoing" ? "bg-gray-400 cursor-not-allowed" : "bg-green-600 hover:bg-green-700"}`}
               onClick={handleStart}
-              disabled={status === "ongoing" || status === "ended"}
-              aria-disabled={status === "ongoing" || status === "ended"}
+              disabled={status === "ongoing"}
+              aria-disabled={status === "ongoing"}
             >
               <span className="inline-block mr-2 align-middle">▶</span>
               Start Ride
